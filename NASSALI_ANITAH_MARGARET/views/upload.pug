@@ -40,7 +40,7 @@ a.btn-back(href='/videos')
             .upload-box
               i.bi.bi-cloud-arrow-up.upload-icon-size
               p.m-0 Upload video
-          .invalid-feedback Required field.
+            .invalid-feedback Required field.
         .mb-3
           label.upload-label
             input(type='file' name='thumbnail' accept='image/*')
@@ -78,4 +78,23 @@ script.
     if (!isValid) {
       event.preventDefault();
     }
+  });
+
+  document.querySelectorAll('input, textarea').forEach(element => {
+    element.addEventListener('input', function() {
+        this.classList.remove('is-invalid');
+    });
+  });
+
+  document.querySelector('select[name="quality"]').addEventListener('change', function() {
+      this.classList.remove('is-invalid');
+  });
+
+  const fileInputs = document.querySelectorAll('input[type="file"]');
+  fileInputs.forEach(input => {
+      input.addEventListener('change', function() {
+          if (this.files.length > 0) {
+              this.nextElementSibling.classList.remove('is-invalid');
+          }
+      });
   });
