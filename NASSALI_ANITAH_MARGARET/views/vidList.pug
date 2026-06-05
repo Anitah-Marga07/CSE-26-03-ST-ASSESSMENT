@@ -30,7 +30,7 @@ nav.navbar.navbar-light
             button.options-btn &vellip;
             
           .video-metadata 
-            | #{video.views || 0} views . #{video.publishingDate || 'Recent'}
+            | #{video.views || 0} views . #{video.uploadDate || 'Recent'}
     else
       .col-12.text-center.py-5
         p.text-muted No videos uploaded yet. Be the first!

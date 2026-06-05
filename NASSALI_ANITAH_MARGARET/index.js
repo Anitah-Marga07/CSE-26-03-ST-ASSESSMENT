@@ -30,7 +30,7 @@ app.use(
   expressSession({
     secret: "Tell nobody!",
     resave: false, 
-    saveUninitialized: false, 
+    saveUninitialized: true, 
   }),
 );
 

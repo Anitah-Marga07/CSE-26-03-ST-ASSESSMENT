@@ -10,6 +10,14 @@ a.btn-back(href='/videos')
   i.bi.bi-arrow-left
 .container.form-container
   h2.mb-4 Upload your video
+  if success_msg && success_msg.length > 0
+    .alert.alert-success.alert-dismissible.fade.show.text-center.py-2.mb-4(role='alert' style='background-color: #00B050; color: #ffffff; border: none; border-radius: 4px; font-weight: 500;')
+      | #{success_msg}
+      button.btn-close.btn-close-white.py-2(type='button' data-bs-dismiss='alert' aria-label='Close' style='font-size: 0.75rem;')
+  if error_msg && error_msg.length > 0
+    .alert.alert-danger.alert-dismissible.fade.show.text-center.py-2.mb-4(role='alert' style='background-color: #FF0000; color: #ffffff; border: none; border-radius: 4px; font-weight: 500;')
+      | #{error_msg}
+      button.btn-close.btn-close-white.py-2(type='button' data-bs-dismiss='alert' aria-label='Close' style='font-size: 0.75rem;')
   form#uploadForm(action='/upload' method='POST' enctype='multipart/form-data' novalidate)
     .row
       .col-md-6
@@ -26,18 +34,20 @@ a.btn-back(href='/videos')
         .invalid-feedback Required field.
         input.form-control.mb-3(type='date' placeholder='Date of Publishing' name='publishingDate')
       .col-md-6
-        label.upload-label
-          input(type='file' name='video' accept='video/*')
-          .upload-box
-            i.bi.bi-cloud-arrow-up.upload-icon-size
-            p.m-0 Upload video
-        .invalid-feedback Required field.
-        label.upload-label
-          input(type='file' name='thumbnail' accept='image/*')
-          .upload-box.thumbnail-box
-            i.bi.bi-cloud-arrow-up.upload-icon-size
-            p.m-0 Upload Thumbnail
-        button.btn.btn-upload(type='submit') UPLOAD
+        .mb-3
+          label.upload-label
+            input(type='file' name='video' accept='video/*')
+            .upload-box
+              i.bi.bi-cloud-arrow-up.upload-icon-size
+              p.m-0 Upload video
+          .invalid-feedback Required field.
+        .mb-3
+          label.upload-label
+            input(type='file' name='thumbnail' accept='image/*')
+            .upload-box.thumbnail-box
+              i.bi.bi-cloud-arrow-up.upload-icon-size
+              p.m-0 Upload Thumbnail
+          button.btn.btn-upload(type='submit') UPLOAD
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
 script.
   document.getElementById('uploadForm').addEventListener('submit', function(event) {
@@ -49,21 +59,22 @@ script.
     const video = this.querySelector('input[name="video"]');
     const thumbnail = this.querySelector('input[name="thumbnail"]');
 
-    function validateField(field, condition) {
+    function validateField(field, condition, feedbackTarget = null) {
+      const target = feedbackTarget || field;
       if (condition) {
-        field.classList.add('is-invalid');
+        target.classList.add('is-invalid');
         isValid = false;
       } else {
-        field.classList.remove('is-invalid');
+        target.classList.remove('is-invalid');
       }
     }
 
     validateField(title, title.value.trim() === "");
     validateField(quality, quality.value === "");
     validateField(date, date.value === "");
-    validateField(video, video.files.length === 0);
-    validateField(thumbnail, thumbnail.files.length === 0);
 
+    validateField(video, video.files.length === 0, video.nextElementSibling);
+    
     if (!isValid) {
       event.preventDefault();
     }
