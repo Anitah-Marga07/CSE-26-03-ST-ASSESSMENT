@@ -1,0 +1,101 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+.navbar {
+  padding: 20px 40px;
+  background-color: #ffffff;
+}
+.brand-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.play-icon {
+  background-color: #ff0000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+.play-icon i {
+  margin-left: 2px;
+}
+.brand-name {
+  font-size: 2.2rem;
+  color: #ff0000;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 0;
+}
+.btn-add-video {
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  background: transparent;
+  padding: 8px 32px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.btn-add-video:hover {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+.content-wrapper {
+  padding: 0 40px;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.divider {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 30px;
+}
+.video-card {
+  margin-bottom: 35px;
+}
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.video-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.video-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 6px;
+  color: #000000;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.options-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  font-weight: bold;
+  padding: 0 0 0 8px;
+  cursor: pointer;
+  line-height: 1;
+}
+.video-metadata {
+  font-size: 0.8rem;
+  color: #606060;
+}

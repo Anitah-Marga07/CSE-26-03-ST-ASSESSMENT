@@ -1,0 +1,54 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+.vh-100 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+.brand-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.play-icon {
+  background-color: #ff0000;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  font-size: 2rem;
+}
+.play-icon i {
+  margin-left: 4px;
+}
+.brand-name {
+  font-size: 4rem;
+  color: #ff0000;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+.btn-join {
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  background: transparent;
+  padding: 10px 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.btn-join:hover {
+  background-color: #ff0000;
+  color: #ffffff;
+}
